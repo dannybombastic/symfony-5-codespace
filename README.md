@@ -47,7 +47,7 @@ doctrine:mapping:convert annotation ./src
 ```sh
 -doctrine:mapping:import "Table_name" annotation --path=src/Entity
 ```
-###### https://symfony.com/doc/3.3/doctrine/reverse_engineering.html 
+###### ref: https://symfony.com/doc/3.3/doctrine/reverse_engineering.html 
 
 
 # [MAKE-BUNDLE CLI]
@@ -87,7 +87,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
  ```
     ej.(20200509131407) no quotation marks
 
-[GIT]
+#[GIT]
 ```sh
 - creas folder 
 - entrar en folder
