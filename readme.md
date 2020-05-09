@@ -88,8 +88,8 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 - introduces git init 
 - añadir origenes ej. git remote add origin https://gitlab.com/dannybombastic/synfony-5-codespace
 - checkamos git status
-- apuntamos todo git fetch --all
-- reseteo por si hay diferencias de local a la nube git reset --hard origin/master
+- git pull --rebase 
 - añadimos git add .
 - comentamos git commit -m "coment"
+- git push origin master
 ```
