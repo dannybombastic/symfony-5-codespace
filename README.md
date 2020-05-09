@@ -84,10 +84,10 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 # run migrations 
 ```sh
  -  symfony console doctrine:migrations:migrate "version_number" 
- ```
+```
     ej.(20200509131407) no quotation marks
 
-#[GIT]
+# [GIT]
 ```sh
 - creas folder 
 - entrar en folder
