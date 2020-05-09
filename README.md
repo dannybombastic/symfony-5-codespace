@@ -3,6 +3,9 @@
 Symfony Framework training
 
 
+# [DONWLOAD SYMFONY CLI]
+
+#### ref: https://symfony.com/download
 
 # [SYMFONY CLI]
 ### # create a full web aplications
@@ -73,7 +76,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 ```
   
 
-##### afther it and adding all our annotations your have to generate the migrations file like that:
+##### afther it and adding all our annotations your have to generate the migrations file like this:
 ```sh
 -   symfony console doctrine:migrations:diff 
 ```
