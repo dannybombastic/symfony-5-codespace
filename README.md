@@ -1,5 +1,19 @@
+                
+ <p style="text-align: center; "> 
+
 ![codespace](https://media-exp1.licdn.com/dms/image/C4D0BAQH8ECeZLIxb3Q/company-logo_200_200/0?e=2159024400&v=beta&t=ihBY5eiqqtbX8KuAN5XC99f55pE84AgXGDPO33nRMTo "codespace")
+
+  </p> 
+  
+ # Scafolding Synfony
  
+
+![escafolding](https://raw.githubusercontent.com/dannybombastic/symfony-5-codespace/master/scafoldin_sf5.png "escafolding")
+
+ 
+
+ 
+
 # Synfony 5 codespace
 
 Symfony Framework training
@@ -20,8 +34,6 @@ Symfony Framework training
 <div id="composer"></div>
 
 ##  [COMPOSER CLI]
-
-
 
 ###  create a full web aplications
 
@@ -44,8 +56,6 @@ Symfony Framework training
 <div id="apache"></div>
 
 ## [APACHE PACK  INSTALLATION]
-
-
 
 ``` sh
  composer require symfony/apache-pack
@@ -105,8 +115,6 @@ Symfony Framework training
 
 ##   [SYMFONY CLI]
 
-
-
 ###  create a full web aplications
 
 ``` sh
@@ -122,11 +130,10 @@ Symfony Framework training
 *   symfony new my_project_name --full
 
 ```
+
 <div id="run"></div>
 
 ##  [SYMFONY SERVER RUN]
-
-
 
 ### optional build-in server Port ej 4000
 
@@ -140,13 +147,11 @@ Symfony Framework training
 
 ##  [MAKE-BUNDLE CLI]
 
-
-
 ### # installation
 
 ``` sh
 
-  *  composer require symfony/maker-bundle --dev
+  +  composer require symfony/maker-bundle --dev
 
 ```
 
@@ -175,8 +180,6 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 # [SYMFONY DOCTRINE COMMANDS]
 
-
-
 ### initiate databese
 
 ``` sh
@@ -187,7 +190,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ``` sh
 
-- symfony console  doctrine:ensure-production-settings --env=prod
+* symfony console  doctrine:ensure-production-settings --env=prod
 
 ```
 
@@ -203,7 +206,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ``` sh
 
-- symfony doctrine:mapping:convert annotation ./src
+* symfony doctrine:mapping:convert annotation ./src
 
 ```
 
@@ -211,7 +214,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ``` sh
 
-- symfony doctrine:mapping:import "Table_name" annotation --path=src/Entity
+* symfony doctrine:mapping:import "Table_name" annotation --path=src/Entity
 
 ```
 
@@ -221,7 +224,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ``` sh
 
--   symfony console doctrine:migrations:diff 
+*   symfony console doctrine:migrations:diff 
 
 ```
 
@@ -229,7 +232,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ``` sh
 
--   symfony console doctrine:migrations:status
+*   symfony console doctrine:migrations:status
 
 ```
 
@@ -245,8 +248,6 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ##  [GIT]
 
-
-
 ``` sh
 
 * creas folder 
@@ -260,7 +261,9 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 * git push origin master
 
 ```
+
 <div id="cli"></div>
+
 ## [CHEAT SHEET CLI PDF]
 
 * ref: http://assets.andreiabohner.org/symfony/sf42-console-cheat-sheet.pdf
