@@ -5,7 +5,7 @@
 
   </p> 
   
- # Scafolding Synfony 4 / 5
+ # Scafolding Synfony 
  
 
 ![escafolding](https://raw.githubusercontent.com/dannybombastic/symfony-5-codespace/master/scafoldin_sf5.png "escafolding")
