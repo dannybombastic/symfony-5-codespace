@@ -5,7 +5,11 @@
 
   </p> 
   
+ 
+ # Scafolding Synfony
+ 
  # Scafolding Synfony 4 / 5
+
  
 
 ![escafolding](https://raw.githubusercontent.com/dannybombastic/symfony-5-codespace/master/scafoldin_sf5.png "escafolding")
@@ -184,6 +188,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ``` sh
  -  symfony console doctrine:database:create
+ 
 ```
 
 ###  check environment is ok 
@@ -206,15 +211,45 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ``` sh
 
-* symfony doctrine:mapping:convert annotation ./src
+* symfony console doctrine:mapping:convert annotation ./src
 
 ```
+
+ 
+
+``` 
+
+###  check environment is ok 
+
+``` sh
+
+* symfony console  doctrine:ensure-production-settings --env=prod
+
+```
+
+### Allows Doctrine to introspect an existing database and create mapping
+
+### generate metadata from your existing db
+
+``` sh
+ - symfony console  doctrine:mapping:import --force ClassName xml <-- or yaml type
+```
+
+### generating Entity from your metadata 
+
+``` sh
+
+* symfony doctrine:mapping:convert App annotation ./src
+
+```
+
+ 
 
 ### generate Entity from model db
 
 ``` sh
 
-* symfony doctrine:mapping:import "Table_name" annotation --path=src/Entity
+* symfony doctrine:mapping:import "Table_name o namespace" annotation --path=src/Entity
 
 ```
 
@@ -268,15 +303,18 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 * ref: http://assets.andreiabohner.org/symfony/sf42-console-cheat-sheet.pdf
 
+ 
+ 
 
 <div id="cli"></div>
 
 ## [CHEAT SHEET DOCTRINE METHODS CLI]
 
-```sh
-// src/Controller/ProductController.php
-// ...
+### Fetching Objects from the Database
 
+``` sh
+// src/Controller/ProductController.php
+ 
 /**
  * @Route("/product/{id}", name="product_show")
  */
@@ -297,5 +335,138 @@ public function show($id)
     // or render a template
     // in the template, print things with {{ product.name }}
     // return $this->render('product/show.html.twig', ['product' => $product]);
+}
+
+2º opcion 
+// src/Controller/ProductController.php
+// ...
+use App\Repository\ProductRepository;
+
+/**
+ * @Route("/product/{id}", name="product_show")
+ */
+public function show($id, ProductRepository $productRepository)
+{
+    $product = $productRepository
+        ->find($id);
+
+    // ...
+}
+```
+
+### Persisting Objects to the Database
+
+``` sh
+ // src/Controller/ProductController.php
+namespace App\Controller;
+
+// ...
+use App\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
+
+class ProductController extends AbstractController
+{
+    /**
+     * @Route("/product", name="create_product")
+     */
+    public function createProduct(): Response
+    {
+        // you can fetch the EntityManager via $this->getDoctrine()
+        // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $product = new Product();
+        $product->setName('Keyboard');
+        $product->setPrice(1999);
+        $product->setDescription('Ergonomic and stylish!');
+
+        // tell Doctrine you want to (eventually) save the Product (no queries yet)
+        $entityManager->persist($product);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $entityManager->flush();
+
+        return new Response('Saved new product with id '.$product->getId());
+    }
+}
+
+```
+
+### Validating Objects
+
+``` sh
+// src/Controller/ProductController.php
+namespace App\Controller;
+
+use App\Entity\Product;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+// ...
+
+class ProductController extends AbstractController
+{
+    /**
+     * @Route("/product", name="create_product")
+     */
+    public function createProduct(ValidatorInterface $validator): Response
+    {
+        $product = new Product();
+        // This will trigger an error: the column isnt nullable in the database
+        $product->setName(null);
+        // This will trigger a type mismatch error: an integer is expected
+        $product->setPrice('1999');
+
+        // ...
+
+        $errors = $validator->validate($product);
+        if (count($errors) > 0) {
+            return new Response((string) $errors, 400);
+        }
+
+        // ...
+    }
+}
+```
+
+### Deleting an Objec
+
+```sh
+    $entityManager->remove($product);
+    $entityManager->flush();
+```
+
+
+### Custom Query
+ 
+ 
+```sh
+// src/Repository/ProductRepository.php
+
+// ...
+class ProductRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Product::class);
+    }
+
+    /**
+     * @return Product[]
+     */
+    public function findAllGreaterThanPrice($price): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT p
+            FROM App\Entity\Product p
+            WHERE p.price > :price
+            ORDER BY p.price ASC'
+        )->setParameter('price', $price);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }
 ```

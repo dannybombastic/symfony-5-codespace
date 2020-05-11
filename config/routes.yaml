@@ -1,3 +1,8 @@
 index:
     path: /
     controller: App\Controller\Base\BaseController::index
+
+
+# articulos:
+#     path: /
+#     controller: App\Controller\ArticulosController::index
