@@ -267,3 +267,35 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 ## [CHEAT SHEET CLI PDF]
 
 * ref: http://assets.andreiabohner.org/symfony/sf42-console-cheat-sheet.pdf
+
+
+<div id="cli"></div>
+
+## [CHEAT SHEET DOCTRINE METHODS CLI]
+
+```sh
+// src/Controller/ProductController.php
+// ...
+
+/**
+ * @Route("/product/{id}", name="product_show")
+ */
+public function show($id)
+{
+    $product = $this->getDoctrine()
+        ->getRepository(Product::class)
+        ->find($id);
+
+    if (!$product) {
+        throw $this->createNotFoundException(
+            'No product found for id '.$id
+        );
+    }
+
+    return new Response('Check out this great product: '.$product->getName());
+
+    // or render a template
+    // in the template, print things with {{ product.name }}
+    // return $this->render('product/show.html.twig', ['product' => $product]);
+}
+```
