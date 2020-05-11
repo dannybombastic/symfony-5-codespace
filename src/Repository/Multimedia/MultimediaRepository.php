@@ -2,7 +2,8 @@
 
 namespace App\Repository;
 
-use App\Entity\Articulos\Articles;
+ 
+use App\Entity\Articulos\Multimedia;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -16,7 +17,7 @@ class MultimediaRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Articles::class);
+        parent::__construct($registry, Multimedia::class);
     }
 
     // /**
