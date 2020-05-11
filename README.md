@@ -29,7 +29,7 @@ Symfony Framework training
 * [Symfony Apache-packi](#apache)
 * [Symfony Doctrine commands](#commands)
 * [Adding to GIT](#git)
-* [Save Entity Doctrine](#save)
+* [Save Entity Doctrine](#saveent)
 * [Find Entity Doctrine](#find)
 * [Delete Entity Doctrine](#delete)
 * [Custom Query Doctrine](#custom)
@@ -357,7 +357,7 @@ public function show($id, ProductRepository $productRepository)
     // ...
 }
 ```
-<div id="save"></div>
+<div id="saveent"></div>
 ### Persisting Objects to the Database
 
 ``` sh
