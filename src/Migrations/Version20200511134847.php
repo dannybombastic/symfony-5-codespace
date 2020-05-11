@@ -37,7 +37,7 @@ final class Version20200511134847 extends AbstractMigration
         $this->addSql('ALTER TABLE articles ADD CONSTRAINT FK_BFDD3168FAABF2 FOREIGN KEY (id_cat) REFERENCES categories (id)');
         $this->addSql('ALTER TABLE user_profile ADD CONSTRAINT FK_D95AB4052DE8C6A3 FOREIGN KEY (user_role) REFERENCES user_roles (id)');
         $this->addSql('ALTER TABLE multimedia ADD CONSTRAINT FK_61312863FB0D0145 FOREIGN KEY (id_tipo) REFERENCES multimedia_type (id)');
-        $this->addSql('ALTER TABLE blog_comment ADD CONSTRAINT FK_7882EFEF4B89032C FOREIGN KEY (post_id) REFERENCES blog_post (id)');
+        
     }
 
     public function down(Schema $schema) : void
@@ -49,7 +49,7 @@ final class Version20200511134847 extends AbstractMigration
         $this->addSql('ALTER TABLE comments DROP FOREIGN KEY FK_5F9E962A62913E0E');
         $this->addSql('ALTER TABLE articles DROP FOREIGN KEY FK_BFDD3168FAABF2');
         $this->addSql('ALTER TABLE comments DROP FOREIGN KEY FK_5F9E962A6B3CA4B');
-        $this->addSql('ALTER TABLE blog_comment DROP FOREIGN KEY FK_7882EFEF4B89032C');
+    
         $this->addSql('ALTER TABLE user_profile DROP FOREIGN KEY FK_D95AB4052DE8C6A3');
         $this->addSql('DROP TABLE comments');
         $this->addSql('DROP TABLE multimedia_type');
@@ -57,8 +57,7 @@ final class Version20200511134847 extends AbstractMigration
         $this->addSql('DROP TABLE categories');
         $this->addSql('DROP TABLE user_profile');
         $this->addSql('DROP TABLE multimedia');
-        $this->addSql('DROP TABLE blog_comment');
-        $this->addSql('DROP TABLE blog_post');
+ 
         $this->addSql('DROP TABLE user_roles');
         $this->addSql('DROP TABLE menu');
     }
