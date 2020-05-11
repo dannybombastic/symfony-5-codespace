@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Entity\Articulos;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * MultimediaType
- * 
+ *
  * @ORM\Table(name="multimedia_type")
  * @ORM\Entity
  */

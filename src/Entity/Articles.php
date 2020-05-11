@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Entity\Articulos;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Articles
- * 
+ *
  * @ORM\Table(name="articles", indexes={@ORM\Index(name="id_cat", columns={"id_cat"})})
  * @ORM\Entity
  */

@@ -6,8 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Categories
- * 
- *  
+ *
  * @ORM\Table(name="categories")
  * @ORM\Entity
  */
