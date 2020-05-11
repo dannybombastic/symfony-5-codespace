@@ -29,7 +29,11 @@ Symfony Framework training
 * [Symfony Apache-packi](#apache)
 * [Symfony Doctrine commands](#commands)
 * [Adding to GIT](#git)
-* [Cheat sheet](#cli)
+* [Save Entity Doctrine](#save)
+* [Find Entity Doctrine](#find)
+* [Delete Entity Doctrine](#delete)
+* [Custom Query Doctrine](#custom)
+* [Validation Entity Doctrine](#validate)
 
 ## [DONWLOAD COMPOSER CLI]
 
@@ -306,10 +310,10 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
  
  
 
-<div id="cli"></div>
+
 
 ## [CHEAT SHEET DOCTRINE METHODS CLI]
-
+<div id="find"></div>
 ### Fetching Objects from the Database
 
 ``` sh
@@ -353,7 +357,7 @@ public function show($id, ProductRepository $productRepository)
     // ...
 }
 ```
-
+<div id="save"></div>
 ### Persisting Objects to the Database
 
 ``` sh
@@ -392,7 +396,7 @@ class ProductController extends AbstractController
 }
 
 ```
-
+<div id="validate"></div>
 ### Validating Objects
 
 ``` sh
@@ -428,7 +432,7 @@ class ProductController extends AbstractController
     }
 }
 ```
-
+<div id="delete"></div>
 ### Deleting an Objec
 
 ```sh
@@ -436,7 +440,7 @@ class ProductController extends AbstractController
     $entityManager->flush();
 ```
 
-
+<div id="custom"></div>
 ### Custom Query
  
  
