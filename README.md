@@ -39,7 +39,7 @@ Symfony Framework training
 
  * ref : https://getcomposer.org/download/
  
-<div id="composer"></div>
+<span id="composer"></span>
 
 ##  [COMPOSER CLI]
 
@@ -61,7 +61,7 @@ Symfony Framework training
 
 ```
 
-<div id="apache"></div>
+<span id="apache"></span>
 
 ## [APACHE PACK  INSTALLATION]
 
@@ -119,7 +119,7 @@ Symfony Framework training
 
 #### ref: https://symfony.com/download
 
-<div id="sf5cli"></div>
+<span id="sf5cli"></span>
 
 ##   [SYMFONY CLI]
 
@@ -139,7 +139,7 @@ Symfony Framework training
 
 ```
 
-<div id="run"></div>
+<span id="run"></span>
 
 ##  [SYMFONY SERVER RUN]
 
@@ -151,7 +151,7 @@ Symfony Framework training
 
 ```
 
-<div id="maker"></div>
+<span id="maker"></span>
 
 ##  [MAKE-BUNDLE CLI]
 
@@ -184,7 +184,7 @@ Symfony Framework training
 symfony console MAKE:ENTITY  Group <-- this command is asking you about properties of your model 
 ```
 
-<div id="commands"></div>
+<span id="commands"></span>
 
 # [SYMFONY DOCTRINE COMMANDS]
 
@@ -283,7 +283,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
     ej. (20200509131407) no quotation marks
 
-<div id="git"></div>
+<span id="git"></span>
 
 ##  [GIT]
 
@@ -301,7 +301,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ```
 
-<div id="cli"></div>
+<span id="cli"></span>
 
 ## [CHEAT SHEET CLI PDF]
 
@@ -313,7 +313,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 
 ## [CHEAT SHEET DOCTRINE METHODS CLI]
-<div id="find"></div>
+<span id="find"></span>
 ### Fetching Objects from the Database
 
 ``` sh
@@ -357,7 +357,7 @@ public function show($id, ProductRepository $productRepository)
     // ...
 }
 ```
-<div id="saveent"></div>
+<span id="saveent"></span>
 ### Persisting Objects to the Database
 
 ``` sh
@@ -396,7 +396,7 @@ class ProductController extends AbstractController
 }
 
 ```
-<div id="validate"></div>
+<span id="validate"></span>
 ### Validating Objects
 
 ``` sh
@@ -432,7 +432,7 @@ class ProductController extends AbstractController
     }
 }
 ```
-<div id="delete"></div>
+<span id="delete"></span>
 ### Deleting an Objec
 
 ```sh
@@ -440,7 +440,7 @@ class ProductController extends AbstractController
     $entityManager->flush();
 ```
 
-<div id="custom"></div>
+<span id="custom"></span>
 ### Custom Query
  
  
