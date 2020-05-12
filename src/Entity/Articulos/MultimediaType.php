@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="multimedia_type")
  * @ORM\Entity
  */
+
+ /**
+  * @ORM\Entity(repositoryClass="App\Repository\MultimediaTypeRepository")
+  */
 class MultimediaType
 {
     /**

@@ -2,14 +2,21 @@
 
 namespace App\Entity\Articulos;
 
+use App\Repository\Articulos\ArticulosRepository;
 use Doctrine\ORM\Mapping as ORM;
  
 /**
  * Articles
- *
+ * 
  * @ORM\Table(name="articles", indexes={@ORM\Index(name="id_cat", columns={"id_cat"})})
  * @ORM\Entity
  */
+
+
+ /**
+  *  
+  * @ORM\Entity(repositoryClass=ArticulosRepository::class)
+  */
 class Articles
 {
     /**

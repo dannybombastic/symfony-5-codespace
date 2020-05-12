@@ -6,10 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * UserProfile
- *
+ * 
  * @ORM\Table(name="user_profile", indexes={@ORM\Index(name="user_role", columns={"user_role"})})
  * @ORM\Entity
  */
+
+ /**
+  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+  */
 class UserProfile
 {
     /**

@@ -36,6 +36,13 @@ class ArticulosRepository extends ServiceEntityRepository
     }
     */
 
+    public function saveEntity($entity)
+    {
+        $em = $this->getEntityManager();
+        $em->persist($entity);
+        $em->flush();
+    }
+
     /*
     public function findOneBySomeField($value): ?App
     {
