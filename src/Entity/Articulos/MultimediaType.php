@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Entity;
+namespace App\Entity\Articulos;
 
 use Doctrine\ORM\Mapping as ORM;
 

@@ -3,27 +3,35 @@
 {% block title %}Hello AticulosController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+<div class="container">
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<form action="" method="post">
+  
+</form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Titulo</label>
+      {{ form_widget(fomularie.articuleTitle) }}
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Evaluation</label>
+      {{ form_widget(fomularie.articuleEval) }}
+    </div>
+    <div class="form-group">
+      <label class="form-check-label" for="exampleCheck1">Visited</label>
+      {{ form_widget(fomularie.articuleVisitCnt) }}
+    </div>
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+      {{ form_widget(fomularie.updateEntity) }}
+    </div>
+    
+   
+
+  </div>
 </div>
+
+
 {% endblock %}
