@@ -71,14 +71,14 @@ class UserProfile
     private $isActive = '0';
 
     /**
-     * @var \UserRoles
+     * 
      *
-     * @ORM\ManyToOne(targetEntity="UserRoles")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\UserRoles")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_role", referencedColumnName="id")
      * })
      */
-    private $userRole;
+    private $userRole = [];
 
     public function getUserDni(): ?string
     {
@@ -169,12 +169,12 @@ class UserProfile
         return $this;
     }
 
-    public function getUserRole(): ?UserRoles
+    public function getUserRole()
     {
         return $this->userRole;
     }
 
-    public function setUserRole(?UserRoles $userRole): self
+    public function setUserRole($userRole): self
     {
         $this->userRole = $userRole;
 

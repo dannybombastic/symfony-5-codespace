@@ -2,7 +2,11 @@
 
 namespace App\Entity;
 
+ 
+use App\Entity\Articulos\Articles;
+use App\Entity\User\UserProfile;
 use Doctrine\ORM\Mapping as ORM;
+ 
 
 /**
  * Comments
@@ -36,24 +40,24 @@ class Comments
     private $isActive = '0';
 
     /**
-     * @var \Articles
+     *  
      *
-     * @ORM\ManyToOne(targetEntity="Articles")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Articulos\Articles")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_art", referencedColumnName="id")
      * })
      */
-    private $idArt;
+    private $idArt = null;
 
     /**
-     * @var \UserProfile
+     *  
      *
-     * @ORM\ManyToOne(targetEntity="UserProfile")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User\UserProfile")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="user_dni")
      * })
      */
-    private $idUser;
+    private $idUser = null;
 
     public function getId(): ?int
     {
@@ -84,19 +88,19 @@ class Comments
         return $this;
     }
 
-    public function getIdArt(): ?Articles
+    public function getIdArt()
     {
         return $this->idArt;
     }
 
-    public function setIdArt(?Articles $idArt): self
+    public function setIdArt($idArt): self
     {
         $this->idArt = $idArt;
 
         return $this;
     }
 
-    public function getIdUser(): ?UserProfile
+    public function getIdUser()
     {
         return $this->idUser;
     }

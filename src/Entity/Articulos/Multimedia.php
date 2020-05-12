@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity\Articulos;
+ 
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -50,9 +51,9 @@ class Multimedia
     private $isActive = '0';
 
     /**
-     * @var \MultimediaType
+     * @var MultimediaType
      *
-     * @ORM\ManyToOne(targetEntity="MultimediaType")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Articulos\MultimediaType")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_tipo", referencedColumnName="id")
      * })
@@ -112,12 +113,12 @@ class Multimedia
         return $this;
     }
 
-    public function getIdTipo(): ?MultimediaType
+    public function getIdTipo()
     {
         return $this->idTipo;
     }
 
-    public function setIdTipo(?MultimediaType $idTipo): self
+    public function setIdTipo($idTipo): self
     {
         $this->idTipo = $idTipo;
 

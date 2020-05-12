@@ -3,7 +3,7 @@
 namespace App\Entity\Articulos;
 
 use Doctrine\ORM\Mapping as ORM;
-
+ 
 /**
  * Articles
  *
@@ -71,9 +71,9 @@ class Articles
     private $isActive = '0';
 
     /**
-     * @var \Categories
+     * @var Categories
      *
-     * @ORM\ManyToOne(targetEntity="Categories")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Articulos\Categories")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_cat", referencedColumnName="id")
      * })
@@ -169,7 +169,7 @@ class Articles
         return $this;
     }
 
-    public function getIdCat(): ?Categories
+    public function getIdCat()
     {
         return $this->idCat;
     }

@@ -10,16 +10,46 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticulosController extends AbstractController
 {
     /**
-     * @Route("/articulos", name="aticulos")
+     * @Route("/", name="home")
      */
     public function index()
     {
         $form = new ArticulosForm();
-        $form =  $this->createForm(FormTypeArticulos::class, $form);
+        $form =  $this->createForm(
+            FormTypeArticulos::class,
+            $form,
+            [
+                'action' => $this->generateUrl('articulos'),
+                'method' => 'POST',
+            ]
+        );
 
         return $this->render('Articulos/index.html.twig', [
             'controller_name' => 'ArticulosController',
             'fomularie' => $form->createView()
         ]);
     }
+
+     /**
+     * @Route("/articulos", name="articulos")
+     */
+    public function articulos()
+    {
+        $form = new ArticulosForm();
+        $form =  $this->createForm(
+            FormTypeArticulos::class,
+            $form,
+            [
+                'action' => $this->generateUrl('articulos'),
+                'method' => 'POST',
+            ]
+        );
+
+        return $this->render('Articulos/index.html.twig', [
+            'controller_name' => 'ArticulosController',
+            'fomularie' => $form->createView()
+        ]);
+    }
+
+
 }

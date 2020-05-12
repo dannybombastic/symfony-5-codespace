@@ -7,26 +7,26 @@
 <div class="container">
 
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-<form action="" method="post">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Titulo</label>
+    {{ form_widget(fomularie.articuleTitle) }}
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Evaluation</label>
+    {{ form_widget(fomularie.articuleEval) }}
+  </div>
+  <div class="form-group">
+    <label class="form-check-label" for="exampleCheck1">Visited</label>
+    {{ form_widget(fomularie.articuleVisitCnt) }}
+  </div>
   
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+    {{ form_widget(fomularie.updateEntity) }}
+  </div>
 </form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Titulo</label>
-      {{ form_widget(fomularie.articuleTitle) }}
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Evaluation</label>
-      {{ form_widget(fomularie.articuleEval) }}
-    </div>
-    <div class="form-group">
-      <label class="form-check-label" for="exampleCheck1">Visited</label>
-      {{ form_widget(fomularie.articuleVisitCnt) }}
-    </div>
-    
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-      {{ form_widget(fomularie.updateEntity) }}
-    </div>
+   
     
    
 
