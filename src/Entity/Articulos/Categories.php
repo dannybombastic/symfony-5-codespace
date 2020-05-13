@@ -1,6 +1,6 @@
 <?php
 namespace App\Entity\Articulos;
-
+use App\Repository\Categorie\CategorieRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
  /**
-  * @ORM\Entity(repositoryClass="App\Repository\CategorieRepository")
+  * @ORM\Entity(repositoryClass=CategorieRepository::class)
   */
 class Categories
 {

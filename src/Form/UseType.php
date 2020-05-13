@@ -8,9 +8,18 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class UseType extends AbstractType
 {
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => Articles::class,
+            'categorias' => null
+        ]);
+    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -49,13 +58,12 @@ class UseType extends AbstractType
             ])
             ->add('visitedAt')
             ->add('createAt')
-            ->add('idCat');
-    }
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => Articles::class,
-        ]);
+            ->add('idCat', ChoiceType::class, [
+                'choices' => $options["categorias"],
+                'choice_attr' => function($choice, $key, $value) {
+                    // adds a class like attending_yes, attending_no, etc
+                    return ['class' => 'attending_'.strtolower($key)];
+                },
+            ]);
     }
 }
