@@ -31,6 +31,7 @@ Symfony Framework training
 * [Delete Entity Doctrine](#delete)
 * [Custom Query Doctrine](#custom)
 * [Validation Entity Doctrine](#validate)
+* [Fomr class](#validate)
 
 ## [DONWLOAD COMPOSER CLI]
 

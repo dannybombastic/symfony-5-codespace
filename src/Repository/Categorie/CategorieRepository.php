@@ -37,6 +37,21 @@ class CategorieRepository extends ServiceEntityRepository
     }
     */
 
+
+    public function findByNmae(string $name)
+    {
+        $query = $this->getEntityManager()->createQuery(
+            'SELECT c
+            FROM App\Entity\Categorie\Categorie c
+            WHERE c.name = :name
+            ORDER BY c.name ASC'
+        )->setParameter('name', $name);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+
+
     /*
     public function findOneBySomeField($value): ?App
     {

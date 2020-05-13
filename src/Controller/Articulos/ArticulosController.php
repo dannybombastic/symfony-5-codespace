@@ -19,10 +19,12 @@ class ArticulosController extends AbstractController
      */
     public function articulos(Request $request)
     {
+
       
         $formArticulos = new Articles();
         //$articulos = $this->getDoctrine()->getRepository(Articles::class)->saveEntity($formArticulos);
         $categorias =  $this->getDoctrine()->getRepository(Categories::class)->findAll();
+       
         
         $datosCategoria = [];
         foreach($categorias as $cat){
@@ -30,7 +32,7 @@ class ArticulosController extends AbstractController
         }
        
         $formArticulos = $this->createForm(UseType::class, $formArticulos, [
-            'categorias' => $datosCategoria,
+            'categorias' => $categorias,
         ]);
         
         $formArticulos->handleRequest($request);

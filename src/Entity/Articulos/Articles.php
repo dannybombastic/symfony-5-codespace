@@ -176,7 +176,7 @@ class Articles
         return $this;
     }
 
-    public function getIdCat()
+    public function getIdCat(): ?Categories
     {
         return $this->idCat;
     }
