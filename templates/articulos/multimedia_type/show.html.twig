@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<title>MultimediaType</title>
+
+{% block body %}
+    <h1>MultimediaType</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ multimedia_type.id }}</td>
+            </tr>
+            <tr>
+                <th>MType</th>
+                <td>{{ multimedia_type.mType }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('articulos_multimedia_type_index') }}">back to list</a>
+
+    <a href="{{ path('articulos_multimedia_type_edit', {'id': multimedia_type.id}) }}">edit</a>
+
+    {{ include('articulos_multimedia_type/_delete_form.html.twig') }}
+{% endblock %}

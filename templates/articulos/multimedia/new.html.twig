@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<title>New Multimedia</title>
+
+{% block body %}
+    <h1>Create new Multimedia</h1>
+
+    {{ include('articulos/multimedia/_form.html.twig') }}
+
+    <a href="{{ path('articulos_multimedia_index') }}">back to list</a>
+{% endblock %}

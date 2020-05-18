@@ -47,7 +47,7 @@ Symfony Framework training
 
 ``` sh
 
-* composer create-project symfony/skeleton my_project_name
+* composer create-project symfony/website-skeleton my_project_name
 
 ```
 
@@ -193,33 +193,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
  
 ```
 
-###  check environment is ok 
-
-``` sh
-
-* symfony console  doctrine:ensure-production-settings --env=prod
-
-```
-
-### Allows Doctrine to introspect an existing database and create mapping
-
-### generate metadata from your existing db
-
-``` sh
- - symfony console  doctrine:mapping:import --force ClassName xml <-- or yaml type
-```
-
-### generating Entity from your metadata 
-
-``` sh
-
-* symfony console doctrine:mapping:convert annotation ./src
-
-```
-
  
-
-``` 
 
 ###  check environment is ok 
 
@@ -251,7 +225,7 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 
 ``` sh
 
-* symfony doctrine:mapping:import "Table_name o namespace" annotation --path=src/Entity
+* symfony doctrine:mapping:import "namespace" annotation --path=src/Entity
 
 ```
 

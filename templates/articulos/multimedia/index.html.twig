@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<title>Multimedia index</title>
+
+{% block body %}
+    <h1>Multimedia index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>IdArt</th>
+                <th>Src</th>
+                <th>Home</th>
+                <th>IsActive</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for multimedia in multimedia %}
+            <tr>
+                <td>{{ multimedia.id }}</td>
+                <td>{{ multimedia.idArt }}</td>
+                <td>{{ multimedia.src }}</td>
+                <td>{{ multimedia.home ? 'Yes' : 'No' }}</td>
+                <td>{{ multimedia.isActive ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('articulos_multimedia_show', {'id': multimedia.id}) }}">show</a>
+                    <a href="{{ path('articulos_multimedia_edit', {'id': multimedia.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('articulos_multimedia_new') }}">Create new</a>
+{% endblock %}

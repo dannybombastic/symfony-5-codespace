@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<title>MultimediaType index</title>
+
+{% block body %}
+    <h1>MultimediaType index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>MType</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for multimedia_type in multimedia_types %}
+            <tr>
+                <td>{{ multimedia_type.id }}</td>
+                <td>{{ multimedia_type.mType }}</td>
+                <td>
+                    <a href="{{ path('articulos_multimedia_type_show', {'id': multimedia_type.id}) }}">show</a>
+                    <a href="{{ path('articulos_multimedia_type_edit', {'id': multimedia_type.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('articulos_multimedia_type_new') }}">Create new</a>
+{% endblock %}

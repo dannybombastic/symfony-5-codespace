@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit Multimedia</title>
+
+{% block body %}
+    <h1>Edit Multimedia</h1>
+
+    {{ include('articulos/multimedia/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('articulos_multimedia_index') }}">back to list</a>
+
+    {{ include('articulos_multimedia/_delete_form.html.twig') }}
+{% endblock %}
