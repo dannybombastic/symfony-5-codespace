@@ -238,7 +238,18 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 *   symfony console doctrine:migrations:diff 
 
 ```
+####   afther reverse import your have to generate the Repository file like this:
 
+``` sh
+
+   * use App\Repository\User\ApiTokenRepository;
+
+   /**
+    * @ORM\Entity(repositoryClass=ApiTokenRepository::class)
+    */
+
+
+```
 ### check status 
 
 ``` sh
