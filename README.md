@@ -494,9 +494,10 @@ class ProductRepository extends ServiceEntityRepository
 ### QueryBuilder instanciate
 
 ```sh
-
+$qb = $em->createQueryBuilder();
 // example3: retrieve the associated EntityManager
 $em = $qb->getEntityManager();
+
 
 // example4: retrieve the DQL string of what was defined in QueryBuilder
 $dql = $qb->getDql();
