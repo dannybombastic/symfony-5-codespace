@@ -32,6 +32,7 @@ Symfony Framework training
 * [Custom Query Doctrine](#custom)
 * [Validation Entity Doctrine](#validate)
 * [Fomr class](#validate)
+* [DataFixtures](#fixture)
 
 ## [DONWLOAD COMPOSER CLI]
 
@@ -261,11 +262,42 @@ symfony console MAKE:ENTITY  Group <-- this command is asking you about properti
 ### run migrations 
 
 ``` sh
- -  symfony console doctrine:migrations:migrate "version_number" 
+ -  symfony console doctrine:migrations:execute "version_number" --up
 ```
 
     ej. (20200509131407) no quotation marks
 
+### run query from cli 
+
+``` sh
+ -  symfony console doctrine:query:sql  "query_sentence" 
+```
+
+### dump the default configuration for an extension 
+
+``` sh
+ -  symfony console config:dump-reference
+```
+
+
+
+<span id="fixctures"></span>
+
+##  [DATAFIXTURES]
+
+### Install it by composer  migrations 
+
+``` sh
+ -  composer require --dev orm-fixtures
+```
+
+### Install it by composer  migrations 
+
+``` sh
+ -  symfony console doctrine:fixtures:load 
+```
+
+    ej. (20200509131407) no quotation marks
 <span id="git"></span>
 
 ##  [GIT]
@@ -456,4 +488,74 @@ class ProductRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 }
+
+
+<span id="queryBuilder"></span>
+### QueryBuilder instanciate
+
+```sh
+
+// example3: retrieve the associated EntityManager
+$em = $qb->getEntityManager();
+
+// example4: retrieve the DQL string of what was defined in QueryBuilder
+$dql = $qb->getDql();
+
+// example5: retrieve the associated Query object with the processed DQL
+$q = $qb->getQuery();
+```
+
+
+### QueryBuilder instanciate
+
+```sh
+
+// example3: retrieve the associated EntityManager
+$em = $qb->getEntityManager();
+
+// example4: retrieve the DQL string of what was defined in QueryBuilder
+$dql = $qb->getDql();
+
+// example5: retrieve the associated Query object with the processed DQL
+$q = $qb->getQuery();
+```
+
+###  Working with QueryBuilder
+
+```sh
+$qb->select('u')
+   ->from('User', 'u')
+   ->where('u.id = ?1')
+   ->orderBy('u.name', 'ASC');
+   
+ 
+// $qb instanceof QueryBuilder
+$qb->select('u')
+   ->from('User', 'u')
+   ->where('u.id = ?1')
+   ->orderBy('u.name', 'ASC')
+   ->setParameter(1, 100); // Sets ?1 to 100, and thus we will fetch a user with u.id = 100
+   
+// Limiting the REsult 
+
+$offset = (int)$_GET['offset'];
+$limit = (int)$_GET['limit'];
+
+$qb->add('select', 'u')
+   ->add('from', 'User u')
+   ->add('orderBy', 'u.name ASC')
+   ->setFirstResult( $offset )
+   ->setMaxResults( $limit );
+
+```
+ 
+ 
+ ### QueryBuilder Low level Api
+
+```sh
+qb->add('select', 'u')
+   ->add('from', 'User u')
+   ->add('where', 'u.id = ?1')
+   ->add('orderBy', 'u.name ASC');
+   
 ```
