@@ -554,9 +554,24 @@ $qb->add('select', 'u')
  ### QueryBuilder Low level Api
 
 ```sh
-qb->add('select', 'u')
+$qb->add('select', 'u')
    ->add('from', 'User u')
    ->add('where', 'u.id = ?1')
    ->add('orderBy', 'u.name ASC');
+
+   $q = $qb->getQuery();
+   $dql = $qb->getDql();
+   $em = $qb->getEntityManager();
+   $data =  $qb->getOneOrNullResult()
+   $data =  $qb->getResult()
+   
+```
+
+
+ ### Working with Repository
+
+```sh
+   get all with criteria
+ $repository->findBy([],['atribute_name' = 'DESC']);
    
 ```
